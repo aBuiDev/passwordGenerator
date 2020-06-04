@@ -1,18 +1,8 @@
 // Assignment Code
 let generateBtn = document.querySelector('#generate');
 
-// Write password to the #password input
-function writePassword() {
-  let password = generatePassword();
-  let passwordText = document.querySelector('#password');
-
-  passwordText.value = password;
-}
-
 // Add event listener to generate button
-generateBtn.addEventListener('click', writePassword);
-
-passwordPhaseOne();
+generateBtn.addEventListener('click', passwordPhaseOne);
 
 // Password Phase One Generate
 function passwordPhaseOne() {
@@ -39,11 +29,11 @@ function passwordPhaseOne() {
   let userNumberConfirm;
   let userUpperCaseCharacterConfirm;
   let userSpecialCharacterConfirm;
-  userPasswordLengthValue = prompt("Input required password length - must be between 8 and 128 characters:");
+  userPasswordLengthValue = prompt("To create a password, we need to know how long you need your password to be.\nPlease input a number between 8 and 128.\nThis number will determine your password length.");
   passwordLengthControl();
 
-  userNumberConfirm = confirm("Does your password need to contain numeric values?");
-  userUpperCaseCharacterConfirm = confirm("Does your password require upper case characters?");
+  userNumberConfirm = confirm("Would you like your password to contain numeric values?");
+  userUpperCaseCharacterConfirm = confirm("Would you like your password to contain UPPER CASE characters?");
   userSpecialCharacterConfirm = confirm("Would you like your password to contain special characters?");
 
   // Code Variables
@@ -78,8 +68,9 @@ function passwordPhaseOne() {
 
   // For Loop
   for (i = 0; i < (userPasswordLengthValue - randomStringOutputPart.length); i++) {
+    // Password Elements
+    // Random Number Generator
     function randomNumberGen() {
-      // Random Number Generator
       randomNumberGenerator = Math.floor(Math.random() * 9);
     }
 
@@ -98,6 +89,7 @@ function passwordPhaseOne() {
       specialCharacter = specialCharArray[Math.floor(Math.random() * specialCharArray.length)];
     }
 
+    // Password Builter
     // Password Input Randomiser
     function passwordInputRandomiser() {
       randomAssign = Math.floor(Math.random() * 3);
@@ -132,6 +124,10 @@ function passwordPhaseOne() {
   }
   // Generated Password
   alert(yourPassword = randomStringOutputPart + randomiser);
+
+  let passwordText = document.querySelector('#password');
+  passwordText.value = yourPassword;
+
 }
 
 
