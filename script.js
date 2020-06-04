@@ -12,17 +12,12 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
 
-
-let userLengthSelect = prompt("Please enter your required password length. \n You must  Your password can only be between 8 and 128 characters long.")
-
-
-
-
+passwordPhaseOne();
 
 // Password Phase One Generate
-// Variables & Arrays
 function passwordPhaseOne() {
 
+  // Arrays
   let specialCharArray = ["!", "@", "#", "$", "%", "^", "&", "*"];
   let characterArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
   let fourLetterWordArray = ["able", "acid", "aged", "also", "area", "army", "away", "baby", "back", "ball", "bank", "base", "bath", "bear", "beat", "been", "beer", "bell", "belt", "best", "bill", "bird", "blow", "blue", "boat", "body", "bomb", "bond", "bone", "book", "boom", "born", "boss", "both", "bowl", "bulk", "burn", "bush", "busy", "call",
@@ -39,15 +34,19 @@ function passwordPhaseOne() {
     "used", "user", "vary", "vast", "very", "vice", "view", "vote", "wage", "wait", "wake", "walk", "wall", "want", "ward", "warm", "wash", "wave", "ways", "weak", "wear", "week", "well", "went", "were", "west", "what", "when", "whom", "wide", "wife", "wild", "will", "wind", "wine", "wing", "wire", "wise", "wish", "with",
     "wood", "word", "wore", "work", "yard", "yeah", "year", "your", "zero", "zone"];
 
+  // Prompt Variables
   let userPasswordLengthValue = 0;
   let userNumberConfirm;
   let userUpperCaseCharacterConfirm;
   let userSpecialCharacterConfirm;
   userPasswordLengthValue = prompt("Input required password length - must be between 8 and 128 characters:");
+  passwordLengthControl();
+
   userNumberConfirm = confirm("Does your password need to contain numeric values?");
   userUpperCaseCharacterConfirm = confirm("Does your password require upper case characters?");
   userSpecialCharacterConfirm = confirm("Would you like your password to contain special characters?");
 
+  // Code Variables
   let yourPassword = "";
   let randomiser = "";
   let randomStringOutputPart = "";
@@ -55,7 +54,18 @@ function passwordPhaseOne() {
   let randomCharacter = "";
   let randomUpperCaseCharacter = "";
   let specialCharacter = "";
+  let randomAssign = 0;
 
+  // Input Control
+  function passwordLengthControl() {
+    if (userPasswordLengthValue < 8 || userPasswordLengthValue > 128) {
+      alert("Your password length must be between 8 and 128 characters.");
+      userPasswordLengthValue = prompt("Input required password length - must be between 8 and 128 characters:");
+      passwordLengthControl();
+    }
+  }
+
+  // Random Word Concatenator
   function randomStringConcatentated() {
     for (i = 0; i < 2; i++) {
       let randomStringGen = fourLetterWordArray[Math.floor(Math.random() * 499)];
@@ -66,6 +76,7 @@ function passwordPhaseOne() {
 
   randomStringConcatentated();
 
+  // For Loop
   for (i = 0; i < (userPasswordLengthValue - randomStringOutputPart.length); i++) {
     function randomNumberGen() {
       // Random Number Generator
@@ -87,25 +98,34 @@ function passwordPhaseOne() {
       specialCharacter = specialCharArray[Math.floor(Math.random() * specialCharArray.length)];
     }
 
+    // Password Input Randomiser
+    function passwordInputRandomiser() {
+      randomAssign = Math.floor(Math.random() * 3);
+    }
+
+    passwordInputRandomiser();
+
     // Randomiser Concatenator
-    if (userNumberConfirm === true) {
+    if (userNumberConfirm === true && randomAssign === 0) {
       randomNumberGen();
       randomiser = randomiser + randomNumberGenerator;
-    } else {
+    } else if (userUpperCaseCharacterConfirm === false && randomAssign === 0) {
       randomChar();
       randomiser = randomiser + randomCharacter;
     }
-    if (userUpperCaseCharacterConfirm === true) {
+
+    if (userUpperCaseCharacterConfirm === true && randomAssign === 1) {
       randomCharUpperCase();
       randomiser = randomiser + randomUpperCaseCharacter;
-    } else {
+    } else if (userUpperCaseCharacterConfirm === false && randomAssign === 1) {
       randomChar();
       randomiser = randomiser + randomCharacter;
     }
-    if (userSpecialCharacterConfirm === true) {
+
+    if (userSpecialCharacterConfirm === true && randomAssign === 2) {
       randomCharSpecial();
       randomiser = randomiser + specialCharacter;
-    } else {
+    } else if (userUpperCaseCharacterConfirm === false && randomAssign === 2) {
       randomChar();
       randomiser = randomiser + randomCharacter;
     }
