@@ -1,2 +1,2 @@
-### By aBuiDev
+aBuiDev
 # Password Generator
