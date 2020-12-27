@@ -15,9 +15,6 @@ let fourLetterWordArray = ["able", "acid", "aged", "also", "area", "army", "away
 "used", "user", "vary", "vast", "very", "vice", "view", "vote", "wage", "wait", "wake", "walk", "wall", "want", "ward", "warm", "wash", "wave", "ways", "weak", "wear", "week", "well", "went", "were", "west", "what", "when", "whom", "wide", "wife", "wild", "will", "wind", "wine", "wing", "wire", "wise", "wish", "with",
 "wood", "word", "wore", "work", "yard", "yeah", "year", "your", "zero", "zone"];
 
-
-alert("Hello World!");
-
   
 
 
