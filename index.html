@@ -9,13 +9,19 @@
 </head>
 <body>
   <section class="mainSection">
+    <div class="informationContainer">
+      <p class="informationOutput">
+      </p>
+    </div>
     <div class="passwordOutputContainer">
       <p class="passwordOutput">Password</p>
     </div>
     <form id="passwordLengthForm" method="POST">
-      <label>Password Length</label>
-      <input type="number" name="passwordLengthInput" id="passwordLengthInput">
-      <button>Submit</button>
+      <div class="passwordLengthInputContainer">
+        <label>Password Length</label>
+        <input type="number" name="passwordLengthInput" id="passwordLengthInput">
+      </div>
+      <button class="generatePasswordButton">Submit</button>
     </form>
   </section>
   <script src="./script.js">

@@ -8,6 +8,14 @@
   align-items: center;
 }
 
+.informationContainer {
+  width: 500px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .passwordOutputContainer {
   background-color: rgb(15, 15, 15);
   margin: 0px 0px 25px 0px;
@@ -22,6 +30,19 @@
 .passwordOutput {
   color: #fff;
   font-size: 30px;
+}
+
+#passwordLengthForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.passwordLengthInputContainer {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .generatePasswordButton {
