@@ -12,7 +12,11 @@
     <div class="passwordOutputContainer">
       <p class="passwordOutput">Password</p>
     </div>
-    <button class="generatePasswordButton">Generate Password</button>
+    <form id="passwordLengthForm" method="POST">
+      <label>Password Length</label>
+      <input type="number" name="passwordLengthInput" id="passwordLengthInput">
+      <button>Submit</button>
+    </form>
   </section>
   <script src="./script.js">
   </script>

@@ -1,8 +1,9 @@
 // Arrays
 let specialCharacterArray = ["!", "@", "#", "$", "%", "^", "&", "*"];
 let characterArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+let numberArray = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
 let fourLetterWordArray = ["able", "acid", "aged", "also", "area", "army", "away", "baby", "back", "ball", "bank", "base", "bath", "bear", "beat", "been", "beer", "bell", "belt", "best", "bill", "bird", "blow", "blue", "boat", "body", "bomb", "bond", "bone", "book", "boom", "born", "boss", "both", "bowl", "bulk", "burn", "bush", "busy", "call",
-"calm", "came", "camp", "card", "care", "case", "cash", "cast", "cell", "chip", "city", "club", "coal", "coat", "code", "cold", "come", "cook", "cool", "cope", "copy", "CORE", "cost", "crew", "crop", "dark", "data", "date", "dawn", "days", "dead", "deal", "dean", "dear", "debt", "deep", "deny", "desk", "dial", "dick",
+"calm", "came", "camp", "card", "care", "case", "cash", "cast", "cell", "chip", "city", "club", "coal", "coat", "code", "cold", "come", "cook", "cool", "cope", "copy", "core", "cost", "crew", "crop", "dark", "data", "date", "dawn", "days", "dead", "deal", "dean", "dear", "debt", "deep", "deny", "desk", "dial", "dick",
 "diet", "disc", "disk", "does", "done", "door", "dose", "down", "draw", "drew", "drop", "drug", "dual", "duke", "dust", "duty", "each", "earn", "ease", "east", "easy", "edge", "else", "ever", "evil", "exit", "face", "fact", "fail", "fair", "fall", "farm", "fast", "fate", "fear", "feed", "feel", "feet", "fell", "felt",
 "file", "fill", "film", "find", "fire", "firm", "fish", "five", "flat", "flow", "food", "foot", "ford", "form", "fort", "four", "free", "from", "fuel", "full", "fund", "gain", "game", "gave", "gear", "gene", "gift", "girl", "give", "glad", "goes", "gold", "Golf", "gone", "good", "gray", "grew", "grey", "grow", "gulf",
 "hair", "half", "hall", "hand", "hang", "hard", "harm", "hate", "have", "head", "hear", "heat", "held", "hell", "help", "here", "hero", "hill", "hire", "hold", "hole", "holy", "home", "hope", "host", "hour", "huge", "hung", "hunt", "hurt", "idea", "inch", "into", "iron", "item", "jack", "jane", "jean", "john", "join",
@@ -15,7 +16,37 @@ let fourLetterWordArray = ["able", "acid", "aged", "also", "area", "army", "away
 "used", "user", "vary", "vast", "very", "vice", "view", "vote", "wage", "wait", "wake", "walk", "wall", "want", "ward", "warm", "wash", "wave", "ways", "weak", "wear", "week", "well", "went", "were", "west", "what", "when", "whom", "wide", "wife", "wild", "will", "wind", "wine", "wing", "wire", "wise", "wish", "with",
 "wood", "word", "wore", "work", "yard", "yeah", "year", "your", "zero", "zone"];
 
+
+const passwordOutput = document.querySelector('.passwordOutput');
+const passwordLengthForm = document.querySelector('#passwordLengthForm');
+
+
+
+
+// Randomly Assigns a Number Based on Inputted Array Length
+const randomiser = (inputArray) => {
+  const randomIndex = Math.floor(Math.random() * inputArray.length);
+  return inputArray[randomIndex];
+}
+
+
+
+const passwordGenerator = () => {
   
+};
 
 
 
+const randomWordElement = () => {
+  let randomisedWordArray = [];
+  for (let i = 0; i < 3; i++) {
+    randomisedWordArray.push(randomiser(fourLetterWordArray));
+  }
+}
+
+
+
+passwordLengthForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+  let userPasswordLength = parseInt(passwordLengthInput.value);
+});
