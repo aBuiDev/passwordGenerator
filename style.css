@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
 .mainSection {
   background-color: rgb(27, 27, 27);
   width: 100%;
@@ -28,13 +30,23 @@
 }
 
 .passwordOutput {
+  font-family: 'Raleway', sans-serif;
   color: #fff;
   font-size: 30px;
 }
 
 #passwordLengthForm {
+  font-family: 'Raleway', sans-serif;
   display: flex;
   flex-direction: column;
+}
+
+#passwordLengthInput {
+  margin: 20px;
+}
+
+.passwordLengthInputLabel {
+  color: #fff;
 }
 
 .passwordLengthInputContainer {
@@ -46,6 +58,7 @@
 }
 
 .generatePasswordButton {
+  font-family: 'Raleway', sans-serif;
   cursor: pointer;
   width: 300px;
   height: 50px;
