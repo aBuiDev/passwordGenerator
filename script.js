@@ -26,6 +26,9 @@ const passwordLengthForm = document.querySelector('#passwordLengthForm');
 
 
 
+// =============================================================================
+// Randomiser
+// =============================================================================
 
 // Randomly Assigns a Number Based on Inputted Array Length
 const randomiser = (inputArray) => {
@@ -84,9 +87,19 @@ const randomSpecialCharacterSelection = (capitalisedRandomWordArray, randomisedN
   for (let i = 0; i < 1; i++) {
     specialCharacter.push(randomiser(specialCharacterArray));
   }
-  console.log(capitalisedRandomWordArray + randomisedNumberArray + specialCharacter);
+  passwordCompiler(capitalisedRandomWordArray, randomisedNumberArray, specialCharacter);
 }
 
+
+
+// =============================================================================
+// Password Elements | Compiler
+// =============================================================================
+
+// Password Compiler
+const passwordCompiler = (capitalisedRandomWordArray, randomisedNumberArray, specialCharacter) => {
+  passwordOutput.innerText = capitalisedRandomWordArray.join('') + randomisedNumberArray.join('') + specialCharacter;
+}
 
 passwordLengthForm.addEventListener('submit', (event) => {
   event.preventDefault();
@@ -95,16 +108,21 @@ passwordLengthForm.addEventListener('submit', (event) => {
   if (userPasswordLength >= 8 && userPasswordLength <= 9) {
     let numberCount = userPasswordLength - 5;
     randomWordsSelection(1, numberCount);
-  } else if (userPasswordLength >= 10 && userPasswordLength <= 16) {
+  } else if (userPasswordLength >= 10 && userPasswordLength <= 13) {
     let numberCount = userPasswordLength - 9;
     randomWordsSelection(2, numberCount);
+  } else if (userPasswordLength >= 14 && userPasswordLength <= 16) {
+    let numberCount = userPasswordLength - 13;
+    randomWordsSelection(3, numberCount);
   }
 
   // Error Handling
   if (userPasswordLength < 8 || userPasswordLength > 16) {
-    informationOutput.innerText = "Password length must be between 8 and 32 characters in length."
+    passwordOutput.innerText = 'Incorrect Password Length Input';
+    informationOutput.innerText = "Password length must be between 8 and 16 characters in length."
     setTimeout(() => {
       informationOutput.innerText = '';
     }, 5000)
   }
 });
+
