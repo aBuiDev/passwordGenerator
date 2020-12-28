@@ -18,6 +18,11 @@
   align-items: center;
 }
 
+.informationOutput {
+  font-family: 'Raleway', sans-serif;
+  color: #fff;
+}
+
 .passwordOutputContainer {
   background-color: rgb(15, 15, 15);
   margin: 0px 0px 25px 0px;
@@ -39,14 +44,22 @@
   font-family: 'Raleway', sans-serif;
   display: flex;
   flex-direction: column;
-}
-
-#passwordLengthInput {
-  margin: 20px;
+  justify-content: center;
+  align-items: center;
 }
 
 .passwordLengthInputLabel {
   color: #fff;
+  margin: 0px 10px 0px 0px;
+}
+
+#passwordLengthInput {
+  margin: 0px 0px 0px 10px;
+  width: 50px;
+}
+
+#passwordLengthInput:focus {
+  outline: none;
 }
 
 .passwordLengthInputContainer {

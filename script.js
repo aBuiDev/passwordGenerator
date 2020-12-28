@@ -38,11 +38,16 @@ const passwordGenerator = () => {
 
 
 
-const randomWordElement = () => {
+const randomWordsSelection = () => {
   let randomisedWordArray = [];
   for (let i = 0; i < 3; i++) {
     randomisedWordArray.push(randomiser(fourLetterWordArray));
   }
+  randomWordsArrayCapitaliser(randomisedWordArray);
+}
+
+const randomWordsArrayCapitaliser = (randomisedWordArray) => {
+  console.log(randomisedWordArray);
 }
 
 
@@ -57,3 +62,6 @@ passwordLengthForm.addEventListener('submit', (event) => {
     }, 5000)
   }
 });
+
+
+randomWordsSelection();
