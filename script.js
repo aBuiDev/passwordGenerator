@@ -16,8 +16,11 @@ let fourLetterWordArray = ["able", "acid", "aged", "also", "area", "army", "away
 "used", "user", "vary", "vast", "very", "vice", "view", "vote", "wage", "wait", "wake", "walk", "wall", "want", "ward", "warm", "wash", "wave", "ways", "weak", "wear", "week", "well", "went", "were", "west", "what", "when", "whom", "wide", "wife", "wild", "will", "wind", "wine", "wing", "wire", "wise", "wish", "with",
 "wood", "word", "wore", "work", "yard", "yeah", "year", "your", "zero", "zone"];
 
-const informationOutput = document.querySelector('.informationOutput');
+// =============================================================================
+// Interface Elements
+// =============================================================================
 
+const informationOutput = document.querySelector('.informationOutput');
 const passwordOutput = document.querySelector('.passwordOutput');
 const passwordLengthForm = document.querySelector('#passwordLengthForm');
 
@@ -32,42 +35,76 @@ const randomiser = (inputArray) => {
 
 
 
-const passwordGenerator = () => {
-  
-};
+// =============================================================================
+// Password Elements | Words
+// =============================================================================
 
-
-
-const randomWordsSelection = () => {
+// Random Word Selector
+const randomWordsSelection = (wordCount, numberCount) => {
   let randomisedWordArray = [];
-  for (let i = 0; i < 3; i++) {
+  for (let i = 0; i < wordCount; i++) {
     randomisedWordArray.push(randomiser(fourLetterWordArray));
   }
-  console.log(randomisedWordArray);
-  randomWordsArrayCapitaliser(randomisedWordArray);
+  randomWordsArrayCapitaliser(randomisedWordArray, wordCount, numberCount);
 }
 
-const randomWordsArrayCapitaliser = (randomisedWordArray) => {
+// Random Word Capitaliser
+const randomWordsArrayCapitaliser = (randomisedWordArray, wordCount, numberCount) => {
   let capitalisedRandomWordArray = [];
   randomisedWordArray.forEach((word) => {
     capitalisedRandomWordArray.push(word[0].toUpperCase() + word.substring(1));
   });
-  console.log(capitalisedRandomWordArray);
-  
+  randomNumberSelection(capitalisedRandomWordArray, numberCount)
 }
 
+
+
+// =============================================================================
+// Password Elements | Numbers
+// =============================================================================
+
+// Random Character Selector
+const randomNumberSelection = (capitalisedRandomWordArray, numberCount) => {
+  let randomisedNumberArray = [];
+  for (let i = 0; i < numberCount; i++) {
+    randomisedNumberArray.push(randomiser(numberArray));
+  }
+  randomSpecialCharacterSelection(capitalisedRandomWordArray, randomisedNumberArray);
+}
+
+
+
+// =============================================================================
+// Password Elements | Special Character
+// =============================================================================
+
+// Random Special Character Selector
+const randomSpecialCharacterSelection = (capitalisedRandomWordArray, randomisedNumberArray) => {
+  let specialCharacter = [];
+  for (let i = 0; i < 1; i++) {
+    specialCharacter.push(randomiser(specialCharacterArray));
+  }
+  console.log(capitalisedRandomWordArray + randomisedNumberArray + specialCharacter);
+}
 
 
 passwordLengthForm.addEventListener('submit', (event) => {
   event.preventDefault();
   let userPasswordLength = parseInt(passwordLengthInput.value);
-  if (userPasswordLength < 8) {
-    informationOutput.innerText = "Password length must be 8 or more characters in length."
+
+  if (userPasswordLength >= 8 && userPasswordLength <= 9) {
+    let numberCount = userPasswordLength - 5;
+    randomWordsSelection(1, numberCount);
+  } else if (userPasswordLength >= 10 && userPasswordLength <= 16) {
+    let numberCount = userPasswordLength - 9;
+    randomWordsSelection(2, numberCount);
+  }
+
+  // Error Handling
+  if (userPasswordLength < 8 || userPasswordLength > 16) {
+    informationOutput.innerText = "Password length must be between 8 and 32 characters in length."
     setTimeout(() => {
       informationOutput.innerText = '';
     }, 5000)
   }
 });
-
-
-randomWordsSelection();
