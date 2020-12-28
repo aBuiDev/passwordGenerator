@@ -43,11 +43,17 @@ const randomWordsSelection = () => {
   for (let i = 0; i < 3; i++) {
     randomisedWordArray.push(randomiser(fourLetterWordArray));
   }
+  console.log(randomisedWordArray);
   randomWordsArrayCapitaliser(randomisedWordArray);
 }
 
 const randomWordsArrayCapitaliser = (randomisedWordArray) => {
-  console.log(randomisedWordArray);
+  let capitalisedRandomWordArray = [];
+  randomisedWordArray.forEach((word) => {
+    capitalisedRandomWordArray.push(word[0].toUpperCase() + word.substring(1));
+  });
+  console.log(capitalisedRandomWordArray);
+  
 }
 
 
